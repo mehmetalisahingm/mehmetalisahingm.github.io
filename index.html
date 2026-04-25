@@ -8,30 +8,43 @@
       name="description"
       content="Mehmet Ali Sahin builds scalable systems, developer tools, and real-world products."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg: #0b1220;
-        --panel: #111a2b;
-        --panel-2: #16233a;
-        --text: #e8eef8;
-        --muted: #99a8c2;
-        --line: #24324b;
-        --accent: #72e6c8;
-        --accent-2: #8eb9ff;
+        --bg: #09111d;
+        --panel: rgba(15, 26, 43, 0.9);
+        --panel-2: rgba(10, 19, 33, 0.88);
+        --text: #eff4fb;
+        --muted: #9eb0cb;
+        --line: rgba(127, 149, 181, 0.22);
+        --accent: #8df1d6;
+        --accent-2: #9ebdff;
+        --accent-3: #ffd37a;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        font-family: "Segoe UI", system-ui, sans-serif;
+        font-family: "Manrope", sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(114, 230, 200, 0.18), transparent 28%),
-          radial-gradient(circle at top right, rgba(142, 185, 255, 0.18), transparent 30%),
-          linear-gradient(180deg, #0b1220 0%, #0f1728 100%);
+          radial-gradient(circle at top left, rgba(141, 241, 214, 0.14), transparent 28%),
+          radial-gradient(circle at top right, rgba(158, 189, 255, 0.16), transparent 26%),
+          radial-gradient(circle at 50% 20%, rgba(255, 211, 122, 0.08), transparent 24%),
+          linear-gradient(180deg, #09111d 0%, #0d1728 100%);
       }
 
       a {
@@ -40,18 +53,47 @@
       }
 
       .shell {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1160px, calc(100% - 32px));
         margin: 0 auto;
       }
 
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 0 0;
+      }
+
+      .brand {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
       .hero {
-        padding: 72px 0 36px;
+        padding: 56px 0 28px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+        gap: 24px;
+        align-items: stretch;
       }
 
       .eyebrow {
         display: inline-block;
         padding: 8px 12px;
-        border: 1px solid rgba(114, 230, 200, 0.28);
+        border: 1px solid rgba(141, 241, 214, 0.28);
         border-radius: 999px;
         color: var(--accent);
         font-size: 14px;
@@ -60,15 +102,16 @@
 
       h1 {
         margin: 20px 0 16px;
-        font-size: clamp(40px, 7vw, 72px);
-        line-height: 0.98;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(40px, 7vw, 78px);
+        line-height: 0.94;
         letter-spacing: -0.04em;
       }
 
       .hero p {
         max-width: 760px;
         margin: 0;
-        font-size: 18px;
+        font-size: 19px;
         line-height: 1.7;
         color: var(--muted);
       }
@@ -87,6 +130,12 @@
         background: var(--panel);
         color: var(--text);
         font-weight: 600;
+        transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        border-color: rgba(141, 241, 214, 0.42);
       }
 
       .button.primary {
@@ -95,22 +144,99 @@
         color: #08111f;
       }
 
+      .hero-card,
+      .card,
+      .stat {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: linear-gradient(180deg, var(--panel), var(--panel-2));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .hero-copy {
+        padding: 32px;
+      }
+
+      .hero-card {
+        padding: 28px;
+        position: relative;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -32px -42px auto;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(141, 241, 214, 0.24), transparent 70%);
+        pointer-events: none;
+      }
+
+      .hero-card h2,
+      .section-title,
+      .card h2,
+      .card h3,
+      .stat strong {
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .hero-card h2 {
+        margin: 0 0 10px;
+        font-size: 26px;
+      }
+
+      .hero-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .quick-list {
+        display: grid;
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .quick-list li {
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
       .grid {
         display: grid;
         gap: 16px;
       }
 
-      .projects {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        padding: 24px 0 36px;
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding: 6px 0 32px;
       }
 
-      .card {
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        background: linear-gradient(180deg, rgba(22, 35, 58, 0.95), rgba(17, 26, 43, 0.95));
-        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+      .stat {
+        padding: 22px;
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 30px;
+      }
+
+      .stat span {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .projects {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        padding: 10px 0 42px;
       }
 
       .card-body {
@@ -134,14 +260,28 @@
 
       .card p,
       .list li,
-      .footer {
+      .footer,
+      .mini-list li {
         color: var(--muted);
         line-height: 1.7;
       }
 
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
       .section-title {
-        margin: 24px 0 8px;
-        font-size: 28px;
+        margin: 0 0 8px;
+        font-size: 32px;
+      }
+
+      .section-copy {
+        margin: 0;
+        color: var(--muted);
       }
 
       .meta {
@@ -160,9 +300,9 @@
         background: rgba(255, 255, 255, 0.02);
       }
 
-      .two-up {
-        grid-template-columns: 1.4fr 1fr;
-        padding: 20px 0 40px;
+      .feature-layout {
+        grid-template-columns: 1.2fr 0.8fr;
+        padding: 14px 0 40px;
       }
 
       .list {
@@ -170,10 +310,45 @@
         margin: 0;
       }
 
+      .mini-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .mini-list li {
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .mini-list strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text);
+      }
+
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .project-links a {
+        color: var(--accent-2);
+        font-weight: 700;
+      }
+
       .footer {
-        padding: 28px 0 54px;
+        display: grid;
+        gap: 18px;
+        padding: 30px 0 56px;
         border-top: 1px solid var(--line);
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .preview {
@@ -190,30 +365,107 @@
         margin: 0 0 16px;
       }
 
-      @media (max-width: 800px) {
-        .two-up {
+      .muted-link {
+        color: var(--muted);
+      }
+
+      @media (max-width: 960px) {
+        .hero,
+        .feature-layout {
           grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          padding-top: 14px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          width: min(100% - 24px, 1160px);
+        }
+
+        .hero-copy,
+        .hero-card,
+        .card-body,
+        .stat {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: clamp(38px, 14vw, 56px);
         }
       }
     </style>
   </head>
   <body>
     <main class="shell">
+      <div class="topbar">
+        <div class="brand">Mehmet Ali Sahin</div>
+        <nav class="nav">
+          <a href="#featured">Featured</a>
+          <a href="#focus">Focus</a>
+          <a href="#selected">Selected</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
       <section class="hero">
-        <span class="eyebrow">Software Engineering Portfolio</span>
-        <h1>Mehmet Ali Sahin</h1>
-        <p>
-          I build scalable systems, developer tools, and real-world products. My portfolio focuses on
-          production-style backend architecture, product-minded full-stack work, and mobile development.
-        </p>
-        <div class="actions">
-          <a class="button primary" href="https://github.com/mehmetalisahingm">GitHub Profile</a>
-          <a class="button" href="https://github.com/mehmetalisahingm/scalable-real-time-chat-system">Flagship Project</a>
-        </div>
+        <article class="hero-copy hero-card">
+          <span class="eyebrow">Software Engineering Portfolio</span>
+          <h1>Scalable systems, tooling, and product-minded software.</h1>
+          <p>
+            I build production-style backend systems, developer tools, and full-stack products with clear
+            architecture, tradeoff documentation, and demo-ready delivery. The goal of this portfolio is
+            simple: show work that stands up in interviews and looks intentional in under 10 seconds.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/mehmetalisahingm">GitHub Profile</a>
+            <a class="button" href="https://github.com/mehmetalisahingm/scalable-real-time-chat-system">See Flagship Repo</a>
+            <a class="button" href="https://github.com/mehmetalisahingm/mehmetalisahingm">Profile README</a>
+          </div>
+        </article>
+
+        <aside class="hero-card">
+          <h2>Recruiter Quick Read</h2>
+          <p>
+            Strongest signal is concentrated in three flagship repos, then supported with tooling and mobile work.
+          </p>
+          <ul class="quick-list">
+            <li>Realtime system design with Redis, WebSockets, persistence, and tradeoff notes.</li>
+            <li>Queue-driven backend platform with worker isolation, retries, and operator visibility.</li>
+            <li>Product-style full-stack app with authentication, workflows, and polished UX.</li>
+            <li>Supporting portfolio in developer tooling, analytics, CLI work, and Android.</li>
+          </ul>
+        </aside>
       </section>
 
-      <section>
-        <h2 class="section-title">Featured Projects</h2>
+      <section class="grid stats">
+        <article class="stat">
+          <strong>3</strong>
+          <span>Flagship case-study repos with demos, screenshots, architecture notes, and production-style README structure.</span>
+        </article>
+        <article class="stat">
+          <strong>4+</strong>
+          <span>Supporting repos in developer tooling, security analysis, analytics, mobile, and CLI engineering.</span>
+        </article>
+        <article class="stat">
+          <strong>1</strong>
+          <span>Curated public portfolio focused on signal, not volume, with low-value repos removed from the public surface.</span>
+        </article>
+      </section>
+
+      <section id="featured">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-copy">The three repos that define the portfolio and should anchor first impressions.</p>
+          </div>
+        </div>
         <div class="grid projects">
           <article class="card">
             <img
@@ -230,11 +482,13 @@
               </p>
               <div class="meta">
                 <span class="pill">Next.js</span>
+                <span class="pill">Node.js</span>
                 <span class="pill">Redis</span>
                 <span class="pill">Socket.IO</span>
               </div>
-              <div class="actions">
+              <div class="project-links">
                 <a class="button" href="https://github.com/mehmetalisahingm/scalable-real-time-chat-system">GitHub</a>
+                <a href="https://raw.githubusercontent.com/mehmetalisahingm/scalable-real-time-chat-system/main/docs/videos/demo.gif">Demo GIF</a>
               </div>
             </div>
           </article>
@@ -253,12 +507,15 @@
                 dead-letter handling, and an operator dashboard.
               </p>
               <div class="meta">
+                <span class="pill">TypeScript</span>
                 <span class="pill">BullMQ</span>
+                <span class="pill">Redis</span>
                 <span class="pill">PostgreSQL</span>
                 <span class="pill">React</span>
               </div>
-              <div class="actions">
+              <div class="project-links">
                 <a class="button" href="https://github.com/mehmetalisahingm/distributed-job-queue-system">GitHub</a>
+                <a href="https://raw.githubusercontent.com/mehmetalisahingm/distributed-job-queue-system/main/docs/videos/demo.gif">Demo GIF</a>
               </div>
             </div>
           </article>
@@ -277,29 +534,32 @@
                 workflow-oriented domain model for applications, reminders, interviews, and notes.
               </p>
               <div class="meta">
+                <span class="pill">Next.js</span>
                 <span class="pill">Auth.js</span>
                 <span class="pill">Drizzle</span>
                 <span class="pill">PostgreSQL</span>
               </div>
-              <div class="actions">
+              <div class="project-links">
                 <a class="button" href="https://github.com/mehmetalisahingm/career-os">GitHub</a>
+                <a href="https://raw.githubusercontent.com/mehmetalisahingm/career-os/main/docs/videos/demo.gif">Demo GIF</a>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="grid two-up">
+      <section id="focus" class="grid feature-layout">
         <article class="card">
           <div class="card-body">
             <h2>What I Focus On</h2>
             <p class="subtle">
-              Production-style projects that are easy to demo and strong enough to discuss in interviews.
+              Production-style projects that are easy to demo, defend in interviews, and discuss in terms of
+              architecture, tradeoffs, and engineering constraints.
             </p>
             <ul class="list">
               <li>Backend architecture and system design</li>
-              <li>TypeScript, Node.js, Next.js, PostgreSQL, Redis</li>
-              <li>Developer tools and engineering workflow products</li>
+              <li>TypeScript, Node.js, Next.js, PostgreSQL, Redis, BullMQ</li>
+              <li>Developer tooling, platform workflows, and operator-facing products</li>
               <li>Mobile experiences with Kotlin and React Native</li>
             </ul>
           </div>
@@ -307,23 +567,101 @@
 
         <article class="card">
           <div class="card-body">
-            <h2>More Projects</h2>
+            <h2>Case Study Notes</h2>
             <p class="subtle">
-              Additional tooling, analytics, and mobile work that complements the flagship repos above.
+              Each flagship repo is documented to answer the questions a strong interviewer usually asks next.
             </p>
-            <ul class="list">
-              <li><a href="https://github.com/mehmetalisahingm/repo-pulse">repo-pulse</a> - developer analytics dashboard</li>
-              <li><a href="https://github.com/mehmetalisahingm/reposentry">reposentry</a> - repository trust analyzer</li>
-              <li><a href="https://github.com/mehmetalisahingm/miniders-android">miniders-android</a> - Kotlin mobile MVP</li>
-              <li><a href="https://github.com/mehmetalisahingm/repo-audit-cli">repo-audit-cli</a> - GitHub readiness CLI</li>
+            <ul class="mini-list">
+              <li>
+                <strong>Why it exists</strong>
+                The README explains the problem, intended users, and why the project was worth building.
+              </li>
+              <li>
+                <strong>How it scales</strong>
+                Architecture diagrams and scaling decisions make the system design discussion easier.
+              </li>
+              <li>
+                <strong>What was traded off</strong>
+                Tradeoffs are documented instead of hidden, which reads more like production engineering.
+              </li>
+              <li>
+                <strong>How to demo it quickly</strong>
+                Each repo includes screenshots and demo assets so the project is easy to evaluate fast.
+              </li>
             </ul>
           </div>
         </article>
       </section>
 
+      <section id="selected">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Selected Supporting Projects</h2>
+            <p class="section-copy">Additional work that broadens the portfolio without diluting the main story.</p>
+          </div>
+        </div>
+        <div class="grid projects">
+          <article class="card">
+            <div class="card-body">
+              <span class="tag">Developer Tooling</span>
+              <h3>repo-pulse</h3>
+              <p>Developer analytics dashboard SaaS focused on GitHub-connected metrics and team visibility.</p>
+              <div class="meta">
+                <span class="pill">Next.js</span>
+                <span class="pill">Prisma</span>
+                <span class="pill">GitHub OAuth</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/mehmetalisahingm/repo-pulse">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <span class="tag">Security Tooling</span>
+              <h3>reposentry</h3>
+              <p>Repository trust analyzer that estimates AI-written code likelihood and flags secrets and risk signals.</p>
+              <div class="meta">
+                <span class="pill">TypeScript</span>
+                <span class="pill">Static Analysis</span>
+                <span class="pill">CLI</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/mehmetalisahingm/reposentry">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <span class="tag">Mobile</span>
+              <h3>miniders-android</h3>
+              <p>Kotlin and Jetpack Compose mobile MVP that adds platform breadth to the portfolio story.</p>
+              <div class="meta">
+                <span class="pill">Kotlin</span>
+                <span class="pill">Jetpack Compose</span>
+                <span class="pill">Android</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/mehmetalisahingm/miniders-android">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="footer">
         <p>
-          Built as a GitHub Pages portfolio for recruiter-friendly project discovery.
+          Open to backend, platform, and full-stack opportunities where product thinking and systems work both matter.
+        </p>
+        <div id="contact" class="actions">
+          <a class="button primary" href="https://github.com/mehmetalisahingm">GitHub</a>
+          <a class="button" href="https://github.com/mehmetalisahingm/mehmetalisahingm">Profile README</a>
+          <a class="button" href="#featured">Back to top projects</a>
+        </div>
+        <p class="muted-link">
+          Built as a GitHub Pages portfolio with a curated public repo surface and demo-first project presentation.
         </p>
       </section>
     </main>
