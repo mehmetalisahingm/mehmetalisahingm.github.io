@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mehmet Ali Sahin | Software Engineer</title>
+    <meta
+      name="description"
+      content="Mehmet Ali Sahin builds scalable systems, developer tools, and real-world products."
+    />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --panel: #111a2b;
+        --panel-2: #16233a;
+        --text: #e8eef8;
+        --muted: #99a8c2;
+        --line: #24324b;
+        --accent: #72e6c8;
+        --accent-2: #8eb9ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(114, 230, 200, 0.18), transparent 28%),
+          radial-gradient(circle at top right, rgba(142, 185, 255, 0.18), transparent 30%),
+          linear-gradient(180deg, #0b1220 0%, #0f1728 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 72px 0 36px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 12px;
+        border: 1px solid rgba(114, 230, 200, 0.28);
+        border-radius: 999px;
+        color: var(--accent);
+        font-size: 14px;
+        letter-spacing: 0.04em;
+      }
+
+      h1 {
+        margin: 20px 0 16px;
+        font-size: clamp(40px, 7vw, 72px);
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        padding: 14px 18px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .button.primary {
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #08111f;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .projects {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        padding: 24px 0 36px;
+      }
+
+      .card {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(22, 35, 58, 0.95), rgba(17, 26, 43, 0.95));
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+      }
+
+      .card h2,
+      .card h3 {
+        margin: 0 0 10px;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .card p,
+      .list li,
+      .footer {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .section-title {
+        margin: 24px 0 8px;
+        font-size: 28px;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .pill {
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        font-size: 13px;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .two-up {
+        grid-template-columns: 1.4fr 1fr;
+        padding: 20px 0 40px;
+      }
+
+      .list {
+        padding-left: 18px;
+        margin: 0;
+      }
+
+      .footer {
+        padding: 28px 0 54px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+      }
+
+      @media (max-width: 800px) {
+        .two-up {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <span class="eyebrow">Software Engineering Portfolio</span>
+        <h1>Mehmet Ali Sahin</h1>
+        <p>
+          I build scalable systems, developer tools, and real-world products. My portfolio focuses on
+          production-style backend architecture, product-minded full-stack work, and mobile development.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/mehmetalisahingm">GitHub Profile</a>
+          <a class="button" href="https://github.com/mehmetalisahingm/scalable-real-time-chat-system">Flagship Project</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid projects">
+          <article class="card">
+            <span class="tag">Realtime Systems</span>
+            <h3>Scalable Real-Time Chat System</h3>
+            <p>
+              Production-style chat platform with Next.js, Express, PostgreSQL, Redis, Socket.IO,
+              architecture docs, and scaling tradeoff analysis.
+            </p>
+            <div class="meta">
+              <span class="pill">Next.js</span>
+              <span class="pill">Redis</span>
+              <span class="pill">Socket.IO</span>
+            </div>
+            <div class="actions">
+              <a class="button" href="https://github.com/mehmetalisahingm/scalable-real-time-chat-system">View Repository</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="tag">Platform Engineering</span>
+            <h3>Distributed Job Queue System</h3>
+            <p>
+              Queue-driven backend platform with Redis, BullMQ, PostgreSQL, worker isolation, retries,
+              dead-letter handling, and an operator dashboard.
+            </p>
+            <div class="meta">
+              <span class="pill">BullMQ</span>
+              <span class="pill">PostgreSQL</span>
+              <span class="pill">React</span>
+            </div>
+            <div class="actions">
+              <a class="button" href="https://github.com/mehmetalisahingm/distributed-job-queue-system">View Repository</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="tag">Product Engineering</span>
+            <h3>CareerOS</h3>
+            <p>
+              Product-minded job application tracker built with Next.js, Drizzle, Auth.js, and a
+              workflow-oriented domain model for applications, reminders, interviews, and notes.
+            </p>
+            <div class="meta">
+              <span class="pill">Auth.js</span>
+              <span class="pill">Drizzle</span>
+              <span class="pill">PostgreSQL</span>
+            </div>
+            <div class="actions">
+              <a class="button" href="https://github.com/mehmetalisahingm/career-os">View Repository</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="grid two-up">
+        <article class="card">
+          <h2>What I Focus On</h2>
+          <ul class="list">
+            <li>Backend architecture and system design</li>
+            <li>TypeScript, Node.js, Next.js, PostgreSQL, Redis</li>
+            <li>Developer tools and engineering workflow products</li>
+            <li>Mobile experiences with Kotlin and React Native</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>More Projects</h2>
+          <ul class="list">
+            <li><a href="https://github.com/mehmetalisahingm/repo-pulse">repo-pulse</a> - developer analytics dashboard</li>
+            <li><a href="https://github.com/mehmetalisahingm/reposentry">reposentry</a> - repository trust analyzer</li>
+            <li><a href="https://github.com/mehmetalisahingm/miniders-android">miniders-android</a> - Kotlin mobile MVP</li>
+            <li><a href="https://github.com/mehmetalisahingm/repo-audit-cli">repo-audit-cli</a> - GitHub readiness CLI</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="footer">
+        <p>
+          Built as a GitHub Pages portfolio for recruiter-friendly project discovery.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
